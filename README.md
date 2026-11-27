@@ -9,7 +9,8 @@ Kalorien-, Makro- und Trinkzähler fürs Handy. Eine einzige HTML-Seite ohne Bui
 - Lebensmittelliste (je 100 g), eigene Einträge, „Wie gestern“
 - Trinkzähler mit 150, 200, 250, 330, 500, 750 und 1000 ml
 - Verlauf über 7 oder 30 Tage für Kalorien und Trinken, Gewichtskurve
-- Anpassbar: Akzentfarbe, Hintergrund, Schrift, Schriftgröße, Ecken, Hell/Dunkel
+- Drei Stile: Store (weiße Kacheln auf Hellgrau), Glas (Milchglas über farbigen Flächen) und Klar
+- Anpassbar: 17 Akzentfarben, 11 Hintergründe, Schrift, Schriftgröße, Ecken, Hell/Dunkel
 - Lässt sich als App zum Home-Bildschirm hinzufügen und funktioniert offline
 
 ## Design: Calm Precision

@@ -39,6 +39,12 @@
   --f-display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif;
   --f-body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;
   --r:14px; --r-sm:10px; --scale:1;
+  /* glass style: three soft color fields behind frosted panels (written by the Design settings) */
+  --m1-l:#C9E2D2; --m2-l:#C7DCE6; --m3-l:#DDE3C4; --m1-d:#21402F; --m2-d:#1F3843; --m3-d:#3A3F22;
+  --m1:var(--m1-l); --m2:var(--m2-l); --m3:var(--m3-l);
+  --glass:rgba(255,255,255,.6); --glass-strong:rgba(251,251,248,.8); --glass-sunk:rgba(255,255,255,.55);
+  --glass-edge:rgba(255,255,255,.8); --glass-line:rgba(32,33,31,.07);
+  --glass-shadow:0 1px 1px rgba(32,33,31,.03),0 10px 32px rgba(32,33,31,.08);
   /* type scale = iOS text styles at the default text size, times the app's own size setting */
   --t-caption2:calc(.647rem * var(--scale));  /* 11 */
   --t-caption1:calc(.706rem * var(--scale));  /* 12 */
@@ -58,23 +64,36 @@
   --bg:var(--bg-d); --surface:var(--surface-d); --sunk:var(--sunk-d); --line:var(--line-d);
   --accent:var(--accent-d); --accent-ink:var(--aink-d); --ink:#ECECE7; --muted:#9B9D96; --tick:#474943;
   --prot:#94AECB; --carb:#D6B477; --fat:#D69F92; --water:#8DBCCB; --over:#D2A773; --warn:#E08E72;
-  --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); color-scheme:dark}}
+  --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); --m1:var(--m1-d); --m2:var(--m2-d); --m3:var(--m3-d);
+  --glass:rgba(38,40,37,.5); --glass-strong:rgba(27,28,26,.78); --glass-sunk:rgba(255,255,255,.07);
+  --glass-edge:rgba(255,255,255,.1); --glass-line:rgba(255,255,255,.05);
+  --glass-shadow:0 1px 1px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.34); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:var(--bg-d); --surface:var(--surface-d); --sunk:var(--sunk-d); --line:var(--line-d);
   --accent:var(--accent-d); --accent-ink:var(--aink-d); --ink:#ECECE7; --muted:#9B9D96; --tick:#474943;
   --prot:#94AECB; --carb:#D6B477; --fat:#D69F92; --water:#8DBCCB; --over:#D2A773; --warn:#E08E72;
-  --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); color-scheme:dark}
+  --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); --m1:var(--m1-d); --m2:var(--m2-d); --m3:var(--m3-d);
+  --glass:rgba(38,40,37,.5); --glass-strong:rgba(27,28,26,.78); --glass-sunk:rgba(255,255,255,.07);
+  --glass-edge:rgba(255,255,255,.1); --glass-line:rgba(255,255,255,.05);
+  --glass-shadow:0 1px 1px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.34); color-scheme:dark}
 /* the app's own Hell/Dunkel choice wins over the viewer setting */
 html:root[data-look="light"]{
   --bg:var(--bg-l); --surface:var(--surface-l); --sunk:var(--sunk-l); --line:var(--line-l);
   --accent:var(--accent-l); --accent-ink:var(--aink-l); --ink:#20211F; --muted:#6B6D67; --tick:#C9CAC2;
   --prot:#557089; --carb:#93723A; --fat:#9A6456; --water:#4A7A8B; --over:#8F6A40; --warn:#A0503A;
-  --shadow-float:0 1px 2px rgba(32,33,31,.06),0 10px 30px rgba(32,33,31,.10); --overlay:rgba(18,19,17,.32); color-scheme:light}
+  --shadow-float:0 1px 2px rgba(32,33,31,.06),0 10px 30px rgba(32,33,31,.10); --overlay:rgba(18,19,17,.32);
+  --m1:var(--m1-l); --m2:var(--m2-l); --m3:var(--m3-l);
+  --glass:rgba(255,255,255,.6); --glass-strong:rgba(251,251,248,.8); --glass-sunk:rgba(255,255,255,.55);
+  --glass-edge:rgba(255,255,255,.8); --glass-line:rgba(32,33,31,.07);
+  --glass-shadow:0 1px 1px rgba(32,33,31,.03),0 10px 32px rgba(32,33,31,.08); color-scheme:light}
 html:root[data-look="dark"]{
   --bg:var(--bg-d); --surface:var(--surface-d); --sunk:var(--sunk-d); --line:var(--line-d);
   --accent:var(--accent-d); --accent-ink:var(--aink-d); --ink:#ECECE7; --muted:#9B9D96; --tick:#474943;
   --prot:#94AECB; --carb:#D6B477; --fat:#D69F92; --water:#8DBCCB; --over:#D2A773; --warn:#E08E72;
-  --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); color-scheme:dark}
+  --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); --m1:var(--m1-d); --m2:var(--m2-d); --m3:var(--m3-d);
+  --glass:rgba(38,40,37,.5); --glass-strong:rgba(27,28,26,.78); --glass-sunk:rgba(255,255,255,.07);
+  --glass-edge:rgba(255,255,255,.1); --glass-line:rgba(255,255,255,.05);
+  --glass-shadow:0 1px 1px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.34); color-scheme:dark}
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -108,6 +127,9 @@ html[data-grad="1"] #glow{display:block}
 /* ---------- header ---------- */
 .head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-block:14px 4px}
 .head .sub{margin-top:3px}
+.title .stop{display:none}
+.title-sub{display:block;font-family:var(--f-body);font-size:var(--t-subhead);font-weight:400;letter-spacing:-.01em;color:var(--muted);margin-top:3px}
+.store-only{display:none}
 .daynav{display:flex;gap:2px;margin-bottom:-6px}
 .icon-btn{width:var(--hit);height:var(--hit);display:grid;place-items:center;border:0;background:none;border-radius:50%;color:var(--ink);transition:background var(--dur),opacity var(--dur)}
 .icon-btn svg{width:20px;height:20px}
@@ -146,7 +168,7 @@ html[data-grad="1"] #glow{display:block}
 .macro .scale{--h:9px;--n:20;--major:10;margin-top:2px}
 .m-p{--sc:var(--prot)} .m-c{--sc:var(--carb)} .m-f{--sc:var(--fat)}
 .macro .eyebrow{display:flex;align-items:center;gap:6px}
-.macro .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--sc)}
+.macro .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--sc);flex:none}
 
 /* ---------- water ---------- */
 .water{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:stretch;padding-block:22px;border-bottom:1px solid var(--line)}
@@ -164,11 +186,11 @@ html[data-grad="1"] #glow{display:block}
 .w-amount .unit{font-size:var(--t-body);letter-spacing:0;margin-left:4px}
 .w-goal{font-size:var(--t-footnote);color:var(--muted);margin-top:6px}
 .w-goal.done{color:var(--water)}
-.w-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.pill{min-height:36px;padding:0 14px;border-radius:999px;border:0;background:var(--sunk);color:var(--ink);font-size:var(--t-subhead);font-weight:500;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:6px;transition:background var(--dur),transform 120ms;position:relative}
+.w-actions{display:flex;flex-wrap:nowrap;gap:6px;margin-top:12px}
+.pill{min-height:36px;padding:0 12px;flex:none;border-radius:999px;border:0;background:var(--sunk);color:var(--ink);font-size:var(--t-subhead);font-weight:500;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:6px;transition:background var(--dur),transform 120ms;position:relative}
 .pill::before{content:"";position:absolute;inset:-4px -2px}
 .pill:active{transform:scale(.96)}
-.pill.quiet{background:none;color:var(--muted);padding:0 10px}
+.pill.quiet{background:none;color:var(--muted);padding:0 6px;min-width:36px;justify-content:center}
 .pill.quiet svg{width:18px;height:18px}
 .pill:disabled{opacity:.35;cursor:default}
 
@@ -375,6 +397,75 @@ details.calc[open]>summary svg{transform:rotate(90deg)}
 @keyframes toastIn{from{opacity:0;transform:translate(-50%,6px)}}
 .toast button{border:0;background:none;color:inherit;font-weight:600;padding:0;min-height:28px}
 
+/* ---------- store style: light gray page, white tiles, two-tone headlines ---------- */
+html[data-style="store"]{--tile-shadow:2px 4px 12px rgba(0,0,0,.08);--signal:#B64400}
+@media (prefers-color-scheme:dark){html[data-style="store"]:not([data-theme="light"]):not([data-look="light"]){--tile-shadow:none;--signal:#FF9F0A}}
+html[data-style="store"][data-look="dark"],html[data-style="store"][data-theme="dark"]:not([data-look="light"]){--tile-shadow:none;--signal:#FF9F0A}
+html[data-style="store"] .head{padding-block:22px 6px;align-items:flex-start}
+html[data-style="store"] .title{font-size:var(--t-display);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+html[data-style="store"] .title .stop{display:inline}
+html[data-style="store"] .title-sub{display:inline-block;white-space:nowrap;font:inherit;letter-spacing:inherit;color:var(--muted);margin:0}
+html[data-style="store"] .daynav{margin:4px -8px 0 0}
+html[data-style="store"] .daynav .icon-btn{background:radial-gradient(circle,var(--sunk) 0 17px,transparent 17.5px);color:var(--ink)}
+html[data-style="store"] .daynav .icon-btn svg{width:17px;height:17px}
+html[data-style="store"] .daynav .icon-btn:disabled{opacity:.35}
+html[data-style="store"] .store-only{display:block}
+html[data-style="store"] .sentence-h{font-family:var(--f-display);font-size:var(--t-title2);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:30px 0 14px}
+html[data-style="store"] .sentence-h span{color:var(--muted)}
+html[data-style="store"] :is(.instrument,.h-section){background:var(--surface);border-radius:28px;box-shadow:var(--tile-shadow)}
+html[data-style="store"] .instrument{padding:2px 24px;margin-top:14px}
+html[data-style="store"] .instrument>section:last-child{border-bottom:0}
+html[data-style="store"] .h-section{padding:24px;margin-top:14px;border-bottom:0}
+html[data-style="store"] :is(.instrument,.h-section) .eyebrow{color:var(--signal)}
+html[data-style="store"] .macro .eyebrow{color:var(--muted)}
+html[data-style="store"] .big,html[data-style="store"] .w-amount,html[data-style="store"] .h-figure{font-weight:600;letter-spacing:-.035em}
+html[data-style="store"] .hero{padding-top:24px}
+html[data-style="store"] .log{padding-top:0}
+html[data-style="store"] :is(.group,.inputs,.weight-entry,.stepper){border-radius:22px;box-shadow:var(--tile-shadow)}
+html[data-style="store"] .preset{border-radius:18px;box-shadow:var(--tile-shadow)}
+html[data-style="store"] .empty-add{box-shadow:none}
+html[data-style="store"] :is(.primary,.secondary){border-radius:980px}
+html[data-style="store"] .primary{font-weight:500}
+html[data-style="store"] .seg{border-radius:980px}
+html[data-style="store"] .seg-thumb,html[data-style="store"] .seg button{border-radius:980px}
+html[data-style="store"] .dock{background:color-mix(in srgb,var(--surface) 80%,transparent);border:0;box-shadow:0 0 0 .5px rgba(0,0,0,.08),var(--shadow-float)}
+html[data-style="store"] .add-fab{box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 38%,transparent)}
+@media (min-width:900px){html[data-style="store"] #view-today>.log{padding-top:14px}}
+
+/* ---------- glass style ---------- */
+html[data-style="glas"] #glow{display:block;background:
+  radial-gradient(58% 40% at 8% 6%,var(--m1),transparent 70%),
+  radial-gradient(52% 38% at 96% 22%,var(--m2),transparent 70%),
+  radial-gradient(64% 42% at 26% 70%,var(--m3),transparent 72%),
+  radial-gradient(50% 36% at 92% 92%,var(--m1),transparent 72%)}
+html[data-style="glas"] :is(.instrument,.group,.inputs,.weight-entry,.stepper,.preset,.h-section){
+  background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6);
+  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px var(--glass-line),var(--glass-shadow)}
+html[data-style="glas"] .instrument{border-radius:calc(var(--r) + 10px);padding:0 20px;margin-top:12px}
+html[data-style="glas"] .instrument>section:last-child{border-bottom:0}
+html[data-style="glas"] .instrument .macros,html[data-style="glas"] .instrument .water{border-bottom-color:var(--glass-line)}
+html[data-style="glas"] .hero{padding-top:22px}
+html[data-style="glas"] .h-section{border-radius:calc(var(--r) + 6px);padding:20px;margin-top:12px;border-bottom:0}
+html[data-style="glas"] .empty-add{border:1px dashed color-mix(in srgb,var(--muted) 35%,transparent);box-shadow:none;background:color-mix(in srgb,var(--glass) 55%,transparent)}
+html[data-style="glas"] .row+.row::before,html[data-style="glas"] .group>*+.add-row::before,html[data-style="glas"] .food+.food::before,
+html[data-style="glas"] .inp+.inp::before,html[data-style="glas"] .est+.est::before,html[data-style="glas"] .drink+.drink::before,html[data-style="glas"] .fontopt+.fontopt::before,
+html[data-style="glas"] .group .field-row+.field-row::before,html[data-style="glas"] .group .field-row+.block::before,html[data-style="glas"] .group .block+.field-row::before,html[data-style="glas"] .group .block+.block::before{background:var(--glass-line)}
+html[data-style="glas"] .pill:not(.quiet),html[data-style="glas"] .search,html[data-style="glas"] .secondary{background:var(--glass-sunk);box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px var(--glass-line)}
+html[data-style="glas"] .seg{background:var(--glass-sunk);box-shadow:inset 0 0 0 1px var(--glass-line)}
+html[data-style="glas"] .seg-thumb{background:var(--glass-strong);box-shadow:inset 0 1px 0 var(--glass-edge),0 1px 3px rgba(0,0,0,.1)}
+html[data-style="glas"] .dock{background:var(--glass);-webkit-backdrop-filter:blur(30px) saturate(1.8);backdrop-filter:blur(30px) saturate(1.8);border:0;box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px var(--glass-line),var(--shadow-float)}
+html[data-style="glas"] .tab[aria-selected="true"]{background:var(--glass-sunk);box-shadow:inset 0 1px 0 var(--glass-edge)}
+html[data-style="glas"] .add-fab{background:color-mix(in srgb,var(--accent) 84%,transparent);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(0,0,0,.12),0 8px 24px color-mix(in srgb,var(--accent) 35%,transparent)}
+html[data-style="glas"] .sheet{background:var(--glass-strong);-webkit-backdrop-filter:blur(40px) saturate(1.6);backdrop-filter:blur(40px) saturate(1.6);box-shadow:inset 0 1px 0 var(--glass-edge)}
+html[data-style="glas"] .vessel{background:var(--glass-sunk);border-color:color-mix(in srgb,var(--muted) 45%,transparent);box-shadow:inset 0 1px 0 var(--glass-edge)}
+html[data-style="glas"] .toast{background:color-mix(in srgb,var(--ink) 82%,transparent);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+@media (prefers-reduced-transparency:reduce){
+  html[data-style="glas"] :is(.instrument,.group,.inputs,.weight-entry,.stepper,.preset,.h-section,.dock,.sheet,.add-fab,.toast){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html[data-style="glas"] :is(.instrument,.group,.inputs,.weight-entry,.stepper,.preset,.h-section,.dock){background:var(--surface)!important}
+  html[data-style="glas"] .sheet{background:var(--bg)!important}
+  html[data-style="glas"] .add-fab{background:var(--accent)!important}}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
 /* ---------- wider screens ---------- */
@@ -390,17 +481,26 @@ details.calc[open]>summary svg{transform:rotate(90deg)}
 <script>
 window.KB=(function(){
   var ACCENTS=[
-    {id:"wald",name:"Wald",l:"#536B57",d:"#9DB8A1"},{id:"tinte",name:"Tinte",l:"#3F5873",d:"#9DB3CC"},
+    {id:"blau",name:"Blau",l:"#0071E3",d:"#2997FF"},{id:"wald",name:"Wald",l:"#536B57",d:"#9DB8A1"},{id:"tinte",name:"Tinte",l:"#3F5873",d:"#9DB3CC"},
     {id:"ton",name:"Ton",l:"#8E5E47",d:"#D4A48A"},{id:"pflaume",name:"Pflaume",l:"#6C5470",d:"#B9A0BB"},
     {id:"ocker",name:"Ocker",l:"#7E6634",d:"#CDB57E"},{id:"schiefer",name:"Schiefer",l:"#4D5961",d:"#A9B4BB"},
-    {id:"moos",name:"Moos",l:"#5F6638",d:"#B4B98A"},{id:"beere",name:"Beere",l:"#94435F",d:"#E0A2B8"}];
+    {id:"moos",name:"Moos",l:"#5F6638",d:"#B4B98A"},{id:"beere",name:"Beere",l:"#94435F",d:"#E0A2B8"},
+    {id:"ozean",name:"Ozean",l:"#26648F",d:"#8EC3E8"},{id:"tuerkis",name:"Türkis",l:"#16716E",d:"#79D3C9"},
+    {id:"minze",name:"Minze",l:"#2A7553",d:"#86D6AE"},{id:"koralle",name:"Koralle",l:"#A8483A",d:"#F4A190"},
+    {id:"sonne",name:"Sonne",l:"#8A5D00",d:"#F2C14E"},{id:"lavendel",name:"Lavendel",l:"#64559F",d:"#BCB1F0"},
+    {id:"rose",name:"Rosé",l:"#9C4369",d:"#F1A6C4"},{id:"indigo",name:"Indigo",l:"#3A4A9E",d:"#A6B2F2"}];
   var BGS={
+    hellgrau:{name:"Hellgrau",l:["#F5F5F7","#FFFFFF","#E8E8ED","#D2D2D7"],d:["#000000","#1C1C1E","#2C2C2E","#38383A"]},
     warm:{name:"Papier",l:["#F7F7F4","#FDFDFA","#EFEFEA","#E3E3DC"],d:["#121311","#1B1C1A","#252623","#31322E"]},
     sand:{name:"Sand",l:["#F5F1EA","#FCFAF6","#ECE6DB","#E0D8CA"],d:["#15130F","#1F1C17","#29251F","#363028"]},
     stein:{name:"Stein",l:["#F2F3F2","#FBFBFB","#E8E9E8","#DADCDA"],d:["#111312","#1A1C1B","#242625","#30322F"]},
     nebel:{name:"Nebel",l:["#F1F3F5","#FBFCFD","#E6EAEE","#D8DEE4"],d:["#101316","#191D21","#22272C","#2D3339"]},
     kontrast:{name:"Kontrast",l:["#FFFFFF","#F6F6F4","#ECECE9","#DCDCD8"],d:["#000000","#121212","#1C1C1C","#2A2A2A"]},
-    abend:{name:"Abend",l:["#F4F2EE","#FBFAF7","#EAE7E1","#DCD8D0"],d:["#14120F","#1D1A16","#27231E","#332E27"]}};
+    abend:{name:"Abend",l:["#F4F2EE","#FBFAF7","#EAE7E1","#DCD8D0"],d:["#14120F","#1D1A16","#27231E","#332E27"]},
+    aurora:{name:"Aurora",l:["#F1F4F2","#FBFCFB","#E7ECE9","#DAE1DD"],d:["#0E1312","#171D1B","#212826","#2C3431"],mesh:{l:["#B6E2CC","#C3D2F5","#E8CDEB"],d:["#1C4A3B","#243262","#4A2650"]}},
+    lagune:{name:"Lagune",l:["#EFF4F6","#FAFCFD","#E4ECEF","#D5E0E5"],d:["#0D1316","#161D21","#1F282C","#2A3439"],mesh:{l:["#A9DCE6","#BFD0F7","#C7EBD5"],d:["#134752","#1C2D62","#174A33"]}},
+    abendrot:{name:"Abendrot",l:["#F7F2EF","#FDFAF8","#EEE6E1","#E2D7D0"],d:["#15100F","#1F1817","#2A2120","#362B29"],mesh:{l:["#F6C6AE","#F1BCD3","#D3C7F3"],d:["#5C2C1E","#56203E","#30275E"]}},
+    wiese:{name:"Wiese",l:["#F3F4EE","#FBFCF8","#E9EBE2","#DCE0D3"],d:["#11130E","#1A1D16","#24281F","#2F3428"],mesh:{l:["#CFE6AE","#F4E2A0","#B5E0CC"],d:["#2F4719","#4F4213","#1A4636"]}}};
   var SYS='-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif',SYSB='-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif';
   var FONTS={
     system:{name:"SF Pro · Systemschrift",d:SYS,b:SYSB,css:null},
@@ -410,7 +510,7 @@ window.KB=(function(){
     standard:{name:"Bricolage & Figtree",d:'"Bricolage Grotesque",system-ui,sans-serif',b:'"Figtree",system-ui,sans-serif',css:"family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700&family=Figtree:wght@400;500;600"},
     technisch:{name:"JetBrains Mono & Plex",d:'"JetBrains Mono",ui-monospace,monospace',b:'"IBM Plex Sans",system-ui,sans-serif',css:"family=JetBrains+Mono:wght@300;500&family=IBM+Plex+Sans:wght@400;500;600"}};
   // v2 = Calm Precision; older saved looks are reset once so the new design shows up
-  var DEF_LOOK={v:2,theme:"system",accent:"wald",bg:"warm",font:"system",size:"normal",radius:"weich",grad:false};
+  var DEF_LOOK={v:4,theme:"system",accent:"blau",bg:"hellgrau",style:"store",font:"system",size:"normal",radius:"weich",grad:false};
   var loaded={};
   function ensureFont(k){var f=FONTS[k];if(!f||!f.css||loaded[k])return;loaded[k]=1;var l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?"+f.css+"&display=swap";document.head.appendChild(l)}
   function hexToRgb(h){h=h.replace("#","");if(h.length===3)h=h.replace(/./g,"$&$&");var n=parseInt(h,16);return[(n>>16)&255,(n>>8)&255,n&255]}
@@ -422,13 +522,20 @@ window.KB=(function(){
   function forLight(hex){var x=toHsl(hexToRgb(hex));return rgbToHex(fromHsl(x[0],Math.min(x[1],.4),Math.min(x[2],.4)))}
   function forDark(hex){var x=toHsl(hexToRgb(hex));return rgbToHex(fromHsl(x[0],Math.min(x[1],.4),Math.max(x[2],.68)))}
   function resolveAccent(a){if(a&&a.charAt(0)==="#")return{l:forLight(a),d:forDark(a)};for(var i=0;i<ACCENTS.length;i++)if(ACCENTS[i].id===a)return ACCENTS[i];return ACCENTS[0]}
-  function migrate(look){look=look||{};if(look.v===DEF_LOOK.v)return Object.assign({},DEF_LOOK,look);return Object.assign({},DEF_LOOK,{theme:look.theme||DEF_LOOK.theme,size:look.size||DEF_LOOK.size})}
+  // v4 makes the store style the default; earlier looks switch to it once and keep theme, size and corners
+  function migrate(look){look=look||{};if(look.v===DEF_LOOK.v)return Object.assign({},DEF_LOOK,look);
+    return Object.assign({},DEF_LOOK,{theme:look.theme||DEF_LOOK.theme,size:look.size||DEF_LOOK.size,radius:look.radius||DEF_LOOK.radius})}
+  // color fields for the glass style: from the background when it has its own, otherwise from the accent
+  function meshFor(b,a){if(b.mesh)return b.mesh;var x=toHsl(hexToRgb(a.l)),hs=[x[0],(x[0]+.12)%1,(x[0]+.86)%1];
+    return{l:hs.map(function(h){return rgbToHex(fromHsl(h,.42,.82))}),d:hs.map(function(h){return rgbToHex(fromHsl(h,.38,.24))})}}
   function applyLook(look){
     var L=migrate(look),r=document.documentElement,s=r.style;
     var a=resolveAccent(L.accent);s.setProperty("--accent-l",a.l);s.setProperty("--accent-d",a.d);s.setProperty("--aink-l",inkFor(a.l));s.setProperty("--aink-d",inkFor(a.d));
     var b=BGS[L.bg]||BGS.warm;["bg","surface","sunk","line"].forEach(function(k,i){s.setProperty("--"+k+"-l",b.l[i]);s.setProperty("--"+k+"-d",b.d[i])});
     if(L.theme==="light"||L.theme==="dark")r.setAttribute("data-look",L.theme);else r.removeAttribute("data-look");
     if(L.grad)r.setAttribute("data-grad","1");else r.removeAttribute("data-grad");
+    r.setAttribute("data-style",L.style==="klar"||L.style==="glas"?L.style:"store");
+    var m=meshFor(b,a);[0,1,2].forEach(function(i){s.setProperty("--m"+(i+1)+"-l",m.l[i]);s.setProperty("--m"+(i+1)+"-d",m.d[i])});
     s.setProperty("--r",{eckig:"4px",weich:"14px",rund:"22px"}[L.radius]||"14px");
     s.setProperty("--r-sm",{eckig:"3px",weich:"10px",rund:"16px"}[L.radius]||"10px");
     s.setProperty("--scale",{klein:"0.92",normal:"1",gross:"1.12",xl:"1.25"}[L.size]||"1");
@@ -437,7 +544,7 @@ window.KB=(function(){
     return L;
   }
   function loadAllFonts(){Object.keys(FONTS).forEach(ensureFont)}
-  return{ACCENTS:ACCENTS,BGS:BGS,FONTS:FONTS,DEF_LOOK:DEF_LOOK,applyLook:applyLook,loadAllFonts:loadAllFonts,migrate:migrate};
+  return{ACCENTS:ACCENTS,BGS:BGS,FONTS:FONTS,DEF_LOOK:DEF_LOOK,applyLook:applyLook,loadAllFonts:loadAllFonts,migrate:migrate,meshFor:meshFor,resolveAccent:resolveAccent};
 })();
 (function(){var c=null;try{c=JSON.parse(localStorage.getItem("kalorienbuch-look")||"null")}catch(e){}KB.applyLook(c||{})})();
 </script>
@@ -449,10 +556,7 @@ window.KB=(function(){
   <!-- HEUTE -->
   <main class="view" id="view-today">
     <header class="head">
-      <div>
-        <h1 class="title"><button class="title-btn" id="dateTitle" aria-label="Zu heute springen"><span id="dayName">Heute</span></button></h1>
-        <div class="sub num" id="dayDate"></div>
-      </div>
+      <h1 class="title sentence"><button class="title-btn" id="dateTitle" aria-label="Zu heute springen"><span id="dayName">Heute</span><span class="stop">.</span></button> <span class="title-sub num" id="dayDate"></span></h1>
       <div class="daynav">
         <button class="icon-btn" id="prevDay" aria-label="Vorheriger Tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
         <button class="icon-btn" id="nextDay" aria-label="Nächster Tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -705,7 +809,8 @@ function renderAll(fromSnap){renderToday();if(state.view==="history")renderHisto
 function renderToday(){
   const d=state.date,t=today(),o=day(d),list=o.entries,tot=sum(list),S=state.settings,dd=parseIso(d);
   $("dayName").textContent=d===t?"Heute":d===addDays(t,-1)?"Gestern":dd.toLocaleDateString("de-DE",{weekday:"long"});
-  $("dayDate").textContent=dd.toLocaleDateString("de-DE",{weekday:d===t||d===addDays(t,-1)?"long":undefined,day:"numeric",month:"long"});
+  const rel=d===t||d===addDays(t,-1),store=document.documentElement.getAttribute("data-style")==="store";
+  $("dayDate").textContent=dd.toLocaleDateString("de-DE",{weekday:rel&&!store?"long":undefined,day:"numeric",month:"long"});
   $("nextDay").disabled=d>=t;
   // calories
   const left=S.goal-tot.k,over=left<0;
@@ -736,7 +841,7 @@ function renderToday(){
   $("wUndo").disabled=!o.water.length;
   // meals
   const y=day(addDays(d,-1)).entries;
-  $("meals").innerHTML=MEALS.map(m=>{
+  $("meals").innerHTML='<h2 class="sentence-h store-only">Mahlzeiten. <span>'+(list.length?nf.format(tot.k)+" kcal über den Tag.":"Was gibt es heute?")+'</span></h2>'+MEALS.map(m=>{
     const es=list.filter(e=>e.meal===m.id),mk=sum(es).k,ye=y.filter(e=>e.meal===m.id);
     const head='<div class="meal-head"><span class="eyebrow">'+m.label+'</span>'+(es.length?'<span class="kc">'+nf.format(mk)+' kcal</span>':'')+'</div>';
     if(!es.length)return '<div class="meal">'+head+'<div class="group empty-add"><button class="add-row" data-add="'+m.id+'">'+svgI("plus")+'<span>Hinzufügen</span>'+
@@ -852,14 +957,15 @@ function renderMe(){
   '<p class="p-note">Nach Mifflin-St Jeor. Eiweiß 2 g je kg, Fett 30 %, Rest Kohlenhydrate, Trinken 35 ml je kg. Richtwerte, keine ärztliche Beratung.</p></section>'+
 
   '<section class="p-sec"><span class="eyebrow">Darstellung</span><div class="group">'+
+    '<div class="block"><span class="lab">Stil</span>'+segHTML([["store","Store"],["glas","Glas"],["klar","Klar"]],L.style,'data-lk="style" data-val')+'</div>'+
     '<div class="block"><span class="lab">Erscheinungsbild</span>'+segHTML([["system","Automatisch"],["light","Hell"],["dark","Dunkel"]],L.theme,'data-lk="theme" data-val')+'</div>'+
     '<div class="block"><span class="lab">Akzentfarbe</span><div class="swatches">'+KB.ACCENTS.map(a=>'<button class="sw" data-lk="accent" data-val="'+a.id+'" aria-pressed="'+(L.accent===a.id)+'" aria-label="'+a.name+'" title="'+a.name+'"><i style="background:linear-gradient(135deg,'+a.l+' 50%,'+a.d+' 50%)"></i></button>').join("")+
       '<label class="sw custom" aria-pressed="'+isCustom+'" title="Eigene Farbe"><i'+(isCustom?' style="background:'+esc(L.accent)+'"':'')+'></i><input type="color" id="customColor" aria-label="Eigene Akzentfarbe" value="'+(isCustom?esc(L.accent):"#536B57")+'"></label></div></div>'+
-    '<div class="block"><span class="lab">Hintergrund</span><div class="bgopts">'+Object.keys(KB.BGS).map(k=>{const b=KB.BGS[k];return '<button class="bgopt" data-lk="bg" data-val="'+k+'" aria-pressed="'+(L.bg===k)+'"><span style="background:linear-gradient(90deg,'+b.l[0]+' 50%,'+b.d[0]+' 50%)"></span>'+b.name+'</button>'}).join("")+'</div></div>'+
-    '<div class="field-row"><span class="lab">Sanfter Farbschein</span><button class="switch" role="switch" data-look-toggle="grad" aria-checked="'+!!L.grad+'" aria-label="Sanfter Farbschein"></button></div>'+
+    '<div class="block"><span class="lab">Hintergrund</span><div class="bgopts">'+Object.keys(KB.BGS).map(k=>{const b=KB.BGS[k];const mm=b.mesh&&b.mesh.l;return '<button class="bgopt" data-lk="bg" data-val="'+k+'" aria-pressed="'+(L.bg===k)+'"><span style="background:'+(mm?'linear-gradient(120deg,'+mm[0]+','+mm[1]+','+mm[2]+')':'linear-gradient(90deg,'+b.l[0]+' 50%,'+b.d[0]+' 50%)')+'"></span>'+b.name+'</button>'}).join("")+'</div></div>'+
+    (L.style==="klar"?'<div class="field-row"><span class="lab">Sanfter Farbschein</span><button class="switch" role="switch" data-look-toggle="grad" aria-checked="'+!!L.grad+'" aria-label="Sanfter Farbschein"></button></div>':'')+
     '<div class="block"><span class="lab">Schriftgröße</span>'+segHTML([["klein","Klein"],["normal","Normal"],["gross","Groß"],["xl","Sehr groß"]],L.size,'data-lk="size" data-val')+'</div>'+
     '<div class="block"><span class="lab">Ecken</span>'+segHTML([["eckig","Eckig"],["weich","Weich"],["rund","Rund"]],L.radius,'data-lk="radius" data-val')+'</div>'+
-  '</div><p class="p-note">„Automatisch“ folgt deinem Gerät. Die Schriftgröße folgt zusätzlich der Textgröße deines iPhones.</p></section>'+
+  '</div><p class="p-note">„Store“ zeigt weiße Kacheln auf hellem Grau. „Glas“ legt die Inhalte auf mattes Glas über farbige Flächen. Ohne eigene Farben nimmt der Hintergrund Töne deiner Akzentfarbe. „Automatisch“ folgt deinem Gerät. Die Schriftgröße folgt zusätzlich der Textgröße deines iPhones.</p></section>'+
 
   '<section class="p-sec"><span class="eyebrow">Schrift</span><div class="group">'+Object.keys(KB.FONTS).map(k=>{const f=KB.FONTS[k];
     return '<button class="fontopt" data-lk="font" data-val="'+k+'" aria-pressed="'+(L.font===k)+'"><span><span class="fn1 num" style="font-family:'+esc(f.d)+'">1.840 kcal</span><span class="fn2" style="font-family:'+esc(f.b)+'">'+esc(f.name)+'</span></span><span class="chk">'+svgI("check")+'</span></button>'}).join("")+'</div></section>'+
@@ -1099,7 +1205,7 @@ $("wSave").onclick=saveWeight;
 $("wIn").addEventListener("keydown",e=>{if(e.key==="Enter")saveWeight()});
 $("meBody").addEventListener("click",e=>{
   const t=e.target;
-  const lk=t.closest("[data-lk]");if(lk){if(lk.closest(".seg"))pressSeg(lk);setLook({[lk.dataset.lk]:lk.dataset.val});if(!lk.closest(".seg"))renderMe();return}
+  const lk=t.closest("[data-lk]");if(lk){if(lk.closest(".seg"))pressSeg(lk);setLook({[lk.dataset.lk]:lk.dataset.val});if(!lk.closest(".seg")||lk.dataset.lk==="style")renderMe();return}
   const lt=t.closest("[data-look-toggle]");if(lt){const k=lt.dataset.lookToggle;setLook({[k]:!state.settings.look[k]});lt.setAttribute("aria-checked",String(!!state.settings.look[k]));return}
   const sh=t.closest("[data-show]");if(sh){const k=sh.dataset.show;state.settings.show={...state.settings.show,[k]:!state.settings.show[k]};sh.setAttribute("aria-checked",String(state.settings.show[k]));saveSettings();renderToday();return}
   if(t.closest("#resetLook")){setLook({...KB.DEF_LOOK});renderMe();toast("Darstellung zurückgesetzt");return}
