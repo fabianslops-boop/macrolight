@@ -42,7 +42,7 @@
   /* glass style: three soft color fields behind frosted panels (written by the Design settings) */
   --m1-l:#C9E2D2; --m2-l:#C7DCE6; --m3-l:#DDE3C4; --m1-d:#21402F; --m2-d:#1F3843; --m3-d:#3A3F22;
   --m1:var(--m1-l); --m2:var(--m2-l); --m3:var(--m3-l);
-  --glass:rgba(255,255,255,.6); --glass-strong:rgba(251,251,248,.8); --glass-sunk:rgba(255,255,255,.55);
+  --glass:rgba(255,255,255,.52); --glass-strong:rgba(251,251,252,.78); --glass-sunk:rgba(255,255,255,.5);
   --glass-edge:rgba(255,255,255,.8); --glass-line:rgba(32,33,31,.07);
   --glass-shadow:0 1px 1px rgba(32,33,31,.03),0 10px 32px rgba(32,33,31,.08);
   /* type scale = iOS text styles at the default text size, times the app's own size setting */
@@ -65,7 +65,7 @@
   --accent:var(--accent-d); --accent-ink:var(--aink-d); --ink:#ECECE7; --muted:#9B9D96; --tick:#474943;
   --prot:#94AECB; --carb:#D6B477; --fat:#D69F92; --water:#8DBCCB; --over:#D2A773; --warn:#E08E72;
   --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); --m1:var(--m1-d); --m2:var(--m2-d); --m3:var(--m3-d);
-  --glass:rgba(38,40,37,.5); --glass-strong:rgba(27,28,26,.78); --glass-sunk:rgba(255,255,255,.07);
+  --glass:rgba(40,40,44,.46); --glass-strong:rgba(28,28,30,.76); --glass-sunk:rgba(255,255,255,.07);
   --glass-edge:rgba(255,255,255,.1); --glass-line:rgba(255,255,255,.05);
   --glass-shadow:0 1px 1px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.34); color-scheme:dark}}
 :root[data-theme="dark"]{
@@ -73,7 +73,7 @@
   --accent:var(--accent-d); --accent-ink:var(--aink-d); --ink:#ECECE7; --muted:#9B9D96; --tick:#474943;
   --prot:#94AECB; --carb:#D6B477; --fat:#D69F92; --water:#8DBCCB; --over:#D2A773; --warn:#E08E72;
   --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); --m1:var(--m1-d); --m2:var(--m2-d); --m3:var(--m3-d);
-  --glass:rgba(38,40,37,.5); --glass-strong:rgba(27,28,26,.78); --glass-sunk:rgba(255,255,255,.07);
+  --glass:rgba(40,40,44,.46); --glass-strong:rgba(28,28,30,.76); --glass-sunk:rgba(255,255,255,.07);
   --glass-edge:rgba(255,255,255,.1); --glass-line:rgba(255,255,255,.05);
   --glass-shadow:0 1px 1px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.34); color-scheme:dark}
 /* the app's own Hell/Dunkel choice wins over the viewer setting */
@@ -83,7 +83,7 @@ html:root[data-look="light"]{
   --prot:#557089; --carb:#93723A; --fat:#9A6456; --water:#4A7A8B; --over:#8F6A40; --warn:#A0503A;
   --shadow-float:0 1px 2px rgba(32,33,31,.06),0 10px 30px rgba(32,33,31,.10); --overlay:rgba(18,19,17,.32);
   --m1:var(--m1-l); --m2:var(--m2-l); --m3:var(--m3-l);
-  --glass:rgba(255,255,255,.6); --glass-strong:rgba(251,251,248,.8); --glass-sunk:rgba(255,255,255,.55);
+  --glass:rgba(255,255,255,.52); --glass-strong:rgba(251,251,252,.78); --glass-sunk:rgba(255,255,255,.5);
   --glass-edge:rgba(255,255,255,.8); --glass-line:rgba(32,33,31,.07);
   --glass-shadow:0 1px 1px rgba(32,33,31,.03),0 10px 32px rgba(32,33,31,.08); color-scheme:light}
 html:root[data-look="dark"]{
@@ -91,7 +91,7 @@ html:root[data-look="dark"]{
   --accent:var(--accent-d); --accent-ink:var(--aink-d); --ink:#ECECE7; --muted:#9B9D96; --tick:#474943;
   --prot:#94AECB; --carb:#D6B477; --fat:#D69F92; --water:#8DBCCB; --over:#D2A773; --warn:#E08E72;
   --shadow-float:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --overlay:rgba(0,0,0,.5); --m1:var(--m1-d); --m2:var(--m2-d); --m3:var(--m3-d);
-  --glass:rgba(38,40,37,.5); --glass-strong:rgba(27,28,26,.78); --glass-sunk:rgba(255,255,255,.07);
+  --glass:rgba(40,40,44,.46); --glass-strong:rgba(28,28,30,.76); --glass-sunk:rgba(255,255,255,.07);
   --glass-edge:rgba(255,255,255,.1); --glass-line:rgba(255,255,255,.05);
   --glass-shadow:0 1px 1px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.34); color-scheme:dark}
 
@@ -191,6 +191,7 @@ html[data-grad="1"] #glow{display:block}
 .pill::before{content:"";position:absolute;inset:-4px -2px}
 .pill:active{transform:scale(.96)}
 .pill.quiet{background:none;color:var(--muted);padding:0 6px;min-width:36px;justify-content:center}
+.pill.quiet::before{inset:-4px}
 .pill.quiet svg{width:18px;height:18px}
 .pill:disabled{opacity:.35;cursor:default}
 
@@ -397,40 +398,40 @@ details.calc[open]>summary svg{transform:rotate(90deg)}
 @keyframes toastIn{from{opacity:0;transform:translate(-50%,6px)}}
 .toast button{border:0;background:none;color:inherit;font-weight:600;padding:0;min-height:28px}
 
-/* ---------- store style: light gray page, white tiles, two-tone headlines ---------- */
-html[data-style="store"]{--tile-shadow:2px 4px 12px rgba(0,0,0,.08);--signal:#B64400}
-@media (prefers-color-scheme:dark){html[data-style="store"]:not([data-theme="light"]):not([data-look="light"]){--tile-shadow:none;--signal:#FF9F0A}}
-html[data-style="store"][data-look="dark"],html[data-style="store"][data-theme="dark"]:not([data-look="light"]){--tile-shadow:none;--signal:#FF9F0A}
-html[data-style="store"] .head{padding-block:22px 6px;align-items:flex-start}
-html[data-style="store"] .title{font-size:var(--t-display);font-weight:600;letter-spacing:-.03em;line-height:1.1}
-html[data-style="store"] .title .stop{display:inline}
-html[data-style="store"] .title-sub{display:inline-block;white-space:nowrap;font:inherit;letter-spacing:inherit;color:var(--muted);margin:0}
-html[data-style="store"] .daynav{margin:4px -8px 0 0}
-html[data-style="store"] .daynav .icon-btn{background:radial-gradient(circle,var(--sunk) 0 17px,transparent 17.5px);color:var(--ink)}
-html[data-style="store"] .daynav .icon-btn svg{width:17px;height:17px}
-html[data-style="store"] .daynav .icon-btn:disabled{opacity:.35}
-html[data-style="store"] .store-only{display:block}
-html[data-style="store"] .sentence-h{font-family:var(--f-display);font-size:var(--t-title2);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:30px 0 14px}
-html[data-style="store"] .sentence-h span{color:var(--muted)}
-html[data-style="store"] :is(.instrument,.h-section){background:var(--surface);border-radius:28px;box-shadow:var(--tile-shadow)}
-html[data-style="store"] .instrument{padding:2px 24px;margin-top:14px}
-html[data-style="store"] .instrument>section:last-child{border-bottom:0}
-html[data-style="store"] .h-section{padding:24px;margin-top:14px;border-bottom:0}
-html[data-style="store"] :is(.instrument,.h-section) .eyebrow{color:var(--signal)}
-html[data-style="store"] .macro .eyebrow{color:var(--muted)}
-html[data-style="store"] .big,html[data-style="store"] .w-amount,html[data-style="store"] .h-figure{font-weight:600;letter-spacing:-.035em}
-html[data-style="store"] .hero{padding-top:24px}
-html[data-style="store"] .log{padding-top:0}
-html[data-style="store"] :is(.group,.inputs,.weight-entry,.stepper){border-radius:22px;box-shadow:var(--tile-shadow)}
-html[data-style="store"] .preset{border-radius:18px;box-shadow:var(--tile-shadow)}
-html[data-style="store"] .empty-add{box-shadow:none}
-html[data-style="store"] :is(.primary,.secondary){border-radius:980px}
-html[data-style="store"] .primary{font-weight:500}
-html[data-style="store"] .seg{border-radius:980px}
-html[data-style="store"] .seg-thumb,html[data-style="store"] .seg button{border-radius:980px}
-html[data-style="store"] .dock{background:color-mix(in srgb,var(--surface) 80%,transparent);border:0;box-shadow:0 0 0 .5px rgba(0,0,0,.08),var(--shadow-float)}
-html[data-style="store"] .add-fab{box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 38%,transparent)}
-@media (min-width:900px){html[data-style="store"] #view-today>.log{padding-top:14px}}
+/* ---------- store layout (store and glass): two-tone headlines, large tiles, pill buttons ---------- */
+html:is([data-style="store"],[data-style="glas"]){--tile-shadow:2px 4px 12px rgba(0,0,0,.08);--signal:#B64400}
+@media (prefers-color-scheme:dark){html:is([data-style="store"],[data-style="glas"]):not([data-theme="light"]):not([data-look="light"]){--tile-shadow:none;--signal:#FF9F0A}}
+html:is([data-style="store"],[data-style="glas"])[data-look="dark"],html:is([data-style="store"],[data-style="glas"])[data-theme="dark"]:not([data-look="light"]){--tile-shadow:none;--signal:#FF9F0A}
+html:is([data-style="store"],[data-style="glas"]) .head{padding-block:22px 6px;align-items:flex-start}
+html:is([data-style="store"],[data-style="glas"]) .title{font-size:var(--t-display);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+html:is([data-style="store"],[data-style="glas"]) .title .stop{display:inline}
+html:is([data-style="store"],[data-style="glas"]) .title-sub{display:inline-block;white-space:nowrap;font:inherit;letter-spacing:inherit;color:var(--muted);margin:0}
+html:is([data-style="store"],[data-style="glas"]) .daynav{margin:4px -8px 0 0}
+html:is([data-style="store"],[data-style="glas"]) .daynav .icon-btn{background:radial-gradient(circle,var(--sunk) 0 17px,transparent 17.5px);color:var(--ink)}
+html:is([data-style="store"],[data-style="glas"]) .daynav .icon-btn svg{width:17px;height:17px}
+html:is([data-style="store"],[data-style="glas"]) .daynav .icon-btn:disabled{opacity:.35}
+html:is([data-style="store"],[data-style="glas"]) .store-only{display:block}
+html:is([data-style="store"],[data-style="glas"]) .sentence-h{font-family:var(--f-display);font-size:var(--t-title2);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:30px 0 14px}
+html:is([data-style="store"],[data-style="glas"]) .sentence-h span{color:var(--muted)}
+html:is([data-style="store"],[data-style="glas"]) :is(.instrument,.h-section){background:var(--surface);border-radius:28px;box-shadow:var(--tile-shadow)}
+html:is([data-style="store"],[data-style="glas"]) .instrument{padding:2px 24px;margin-top:14px}
+html:is([data-style="store"],[data-style="glas"]) .instrument>section:last-child{border-bottom:0}
+html:is([data-style="store"],[data-style="glas"]) .h-section{padding:24px;margin-top:14px;border-bottom:0}
+html:is([data-style="store"],[data-style="glas"]) :is(.instrument,.h-section) .eyebrow{color:var(--signal)}
+html:is([data-style="store"],[data-style="glas"]) .macro .eyebrow{color:var(--muted)}
+html:is([data-style="store"],[data-style="glas"]) .big,html:is([data-style="store"],[data-style="glas"]) .w-amount,html:is([data-style="store"],[data-style="glas"]) .h-figure{font-weight:600;letter-spacing:-.035em}
+html:is([data-style="store"],[data-style="glas"]) .hero{padding-top:24px}
+html:is([data-style="store"],[data-style="glas"]) .log{padding-top:0}
+html:is([data-style="store"],[data-style="glas"]) :is(.group,.inputs,.weight-entry,.stepper){border-radius:22px;box-shadow:var(--tile-shadow)}
+html:is([data-style="store"],[data-style="glas"]) .preset{border-radius:18px;box-shadow:var(--tile-shadow)}
+html:is([data-style="store"],[data-style="glas"]) .empty-add{box-shadow:none}
+html:is([data-style="store"],[data-style="glas"]) :is(.primary,.secondary){border-radius:980px}
+html:is([data-style="store"],[data-style="glas"]) .primary{font-weight:500}
+html:is([data-style="store"],[data-style="glas"]) .seg{border-radius:980px}
+html:is([data-style="store"],[data-style="glas"]) .seg-thumb,html:is([data-style="store"],[data-style="glas"]) .seg button{border-radius:980px}
+html:is([data-style="store"],[data-style="glas"]) .dock{background:color-mix(in srgb,var(--surface) 80%,transparent);border:0;box-shadow:0 0 0 .5px rgba(0,0,0,.08),var(--shadow-float)}
+html:is([data-style="store"],[data-style="glas"]) .add-fab{box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 38%,transparent)}
+@media (min-width:900px){html:is([data-style="store"],[data-style="glas"]) #view-today>.log{padding-top:14px}}
 
 /* ---------- glass style ---------- */
 html[data-style="glas"] #glow{display:block;background:
@@ -441,11 +442,11 @@ html[data-style="glas"] #glow{display:block;background:
 html[data-style="glas"] :is(.instrument,.group,.inputs,.weight-entry,.stepper,.preset,.h-section){
   background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6);
   box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px var(--glass-line),var(--glass-shadow)}
-html[data-style="glas"] .instrument{border-radius:calc(var(--r) + 10px);padding:0 20px;margin-top:12px}
+
 html[data-style="glas"] .instrument>section:last-child{border-bottom:0}
 html[data-style="glas"] .instrument .macros,html[data-style="glas"] .instrument .water{border-bottom-color:var(--glass-line)}
-html[data-style="glas"] .hero{padding-top:22px}
-html[data-style="glas"] .h-section{border-radius:calc(var(--r) + 6px);padding:20px;margin-top:12px;border-bottom:0}
+html[data-style="glas"] :is(.instrument,.group,.inputs,.weight-entry,.stepper,.preset,.h-section){border:0}
+
 html[data-style="glas"] .empty-add{border:1px dashed color-mix(in srgb,var(--muted) 35%,transparent);box-shadow:none;background:color-mix(in srgb,var(--glass) 55%,transparent)}
 html[data-style="glas"] .row+.row::before,html[data-style="glas"] .group>*+.add-row::before,html[data-style="glas"] .food+.food::before,
 html[data-style="glas"] .inp+.inp::before,html[data-style="glas"] .est+.est::before,html[data-style="glas"] .drink+.drink::before,html[data-style="glas"] .fontopt+.fontopt::before,
@@ -510,7 +511,7 @@ window.KB=(function(){
     standard:{name:"Bricolage & Figtree",d:'"Bricolage Grotesque",system-ui,sans-serif',b:'"Figtree",system-ui,sans-serif',css:"family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700&family=Figtree:wght@400;500;600"},
     technisch:{name:"JetBrains Mono & Plex",d:'"JetBrains Mono",ui-monospace,monospace',b:'"IBM Plex Sans",system-ui,sans-serif',css:"family=JetBrains+Mono:wght@300;500&family=IBM+Plex+Sans:wght@400;500;600"}};
   // v2 = Calm Precision; older saved looks are reset once so the new design shows up
-  var DEF_LOOK={v:4,theme:"system",accent:"blau",bg:"hellgrau",style:"store",font:"system",size:"normal",radius:"weich",grad:false};
+  var DEF_LOOK={v:5,theme:"system",accent:"blau",bg:"hellgrau",style:"glas",font:"system",size:"normal",radius:"weich",grad:false};
   var loaded={};
   function ensureFont(k){var f=FONTS[k];if(!f||!f.css||loaded[k])return;loaded[k]=1;var l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?"+f.css+"&display=swap";document.head.appendChild(l)}
   function hexToRgb(h){h=h.replace("#","");if(h.length===3)h=h.replace(/./g,"$&$&");var n=parseInt(h,16);return[(n>>16)&255,(n>>8)&255,n&255]}
@@ -522,12 +523,14 @@ window.KB=(function(){
   function forLight(hex){var x=toHsl(hexToRgb(hex));return rgbToHex(fromHsl(x[0],Math.min(x[1],.4),Math.min(x[2],.4)))}
   function forDark(hex){var x=toHsl(hexToRgb(hex));return rgbToHex(fromHsl(x[0],Math.min(x[1],.4),Math.max(x[2],.68)))}
   function resolveAccent(a){if(a&&a.charAt(0)==="#")return{l:forLight(a),d:forDark(a)};for(var i=0;i<ACCENTS.length;i++)if(ACCENTS[i].id===a)return ACCENTS[i];return ACCENTS[0]}
-  // v4 makes the store style the default; earlier looks switch to it once and keep theme, size and corners
+  // v5 makes glass (on the store layout) the default; v4 looks keep their colors and switch to glass once,
+  // older looks reset and keep only theme, size and corners
   function migrate(look){look=look||{};if(look.v===DEF_LOOK.v)return Object.assign({},DEF_LOOK,look);
+    if(look.v===4)return Object.assign({},DEF_LOOK,look,{v:DEF_LOOK.v,style:look.style==="store"?"glas":look.style});
     return Object.assign({},DEF_LOOK,{theme:look.theme||DEF_LOOK.theme,size:look.size||DEF_LOOK.size,radius:look.radius||DEF_LOOK.radius})}
   // color fields for the glass style: from the background when it has its own, otherwise from the accent
   function meshFor(b,a){if(b.mesh)return b.mesh;var x=toHsl(hexToRgb(a.l)),hs=[x[0],(x[0]+.12)%1,(x[0]+.86)%1];
-    return{l:hs.map(function(h){return rgbToHex(fromHsl(h,.42,.82))}),d:hs.map(function(h){return rgbToHex(fromHsl(h,.38,.24))})}}
+    return{l:hs.map(function(h){return rgbToHex(fromHsl(h,.62,.8))}),d:hs.map(function(h){return rgbToHex(fromHsl(h,.5,.26))})}}
   function applyLook(look){
     var L=migrate(look),r=document.documentElement,s=r.style;
     var a=resolveAccent(L.accent);s.setProperty("--accent-l",a.l);s.setProperty("--accent-d",a.d);s.setProperty("--aink-l",inkFor(a.l));s.setProperty("--aink-d",inkFor(a.d));
@@ -809,7 +812,7 @@ function renderAll(fromSnap){renderToday();if(state.view==="history")renderHisto
 function renderToday(){
   const d=state.date,t=today(),o=day(d),list=o.entries,tot=sum(list),S=state.settings,dd=parseIso(d);
   $("dayName").textContent=d===t?"Heute":d===addDays(t,-1)?"Gestern":dd.toLocaleDateString("de-DE",{weekday:"long"});
-  const rel=d===t||d===addDays(t,-1),store=document.documentElement.getAttribute("data-style")==="store";
+  const rel=d===t||d===addDays(t,-1),store=document.documentElement.getAttribute("data-style")!=="klar";
   $("dayDate").textContent=dd.toLocaleDateString("de-DE",{weekday:rel&&!store?"long":undefined,day:"numeric",month:"long"});
   $("nextDay").disabled=d>=t;
   // calories
@@ -957,7 +960,7 @@ function renderMe(){
   '<p class="p-note">Nach Mifflin-St Jeor. Eiweiß 2 g je kg, Fett 30 %, Rest Kohlenhydrate, Trinken 35 ml je kg. Richtwerte, keine ärztliche Beratung.</p></section>'+
 
   '<section class="p-sec"><span class="eyebrow">Darstellung</span><div class="group">'+
-    '<div class="block"><span class="lab">Stil</span>'+segHTML([["store","Store"],["glas","Glas"],["klar","Klar"]],L.style,'data-lk="style" data-val')+'</div>'+
+    '<div class="block"><span class="lab">Stil</span>'+segHTML([["glas","Glas"],["store","Weiß"],["klar","Klar"]],L.style,'data-lk="style" data-val')+'</div>'+
     '<div class="block"><span class="lab">Erscheinungsbild</span>'+segHTML([["system","Automatisch"],["light","Hell"],["dark","Dunkel"]],L.theme,'data-lk="theme" data-val')+'</div>'+
     '<div class="block"><span class="lab">Akzentfarbe</span><div class="swatches">'+KB.ACCENTS.map(a=>'<button class="sw" data-lk="accent" data-val="'+a.id+'" aria-pressed="'+(L.accent===a.id)+'" aria-label="'+a.name+'" title="'+a.name+'"><i style="background:linear-gradient(135deg,'+a.l+' 50%,'+a.d+' 50%)"></i></button>').join("")+
       '<label class="sw custom" aria-pressed="'+isCustom+'" title="Eigene Farbe"><i'+(isCustom?' style="background:'+esc(L.accent)+'"':'')+'></i><input type="color" id="customColor" aria-label="Eigene Akzentfarbe" value="'+(isCustom?esc(L.accent):"#536B57")+'"></label></div></div>'+
@@ -965,7 +968,7 @@ function renderMe(){
     (L.style==="klar"?'<div class="field-row"><span class="lab">Sanfter Farbschein</span><button class="switch" role="switch" data-look-toggle="grad" aria-checked="'+!!L.grad+'" aria-label="Sanfter Farbschein"></button></div>':'')+
     '<div class="block"><span class="lab">Schriftgröße</span>'+segHTML([["klein","Klein"],["normal","Normal"],["gross","Groß"],["xl","Sehr groß"]],L.size,'data-lk="size" data-val')+'</div>'+
     '<div class="block"><span class="lab">Ecken</span>'+segHTML([["eckig","Eckig"],["weich","Weich"],["rund","Rund"]],L.radius,'data-lk="radius" data-val')+'</div>'+
-  '</div><p class="p-note">„Store“ zeigt weiße Kacheln auf hellem Grau. „Glas“ legt die Inhalte auf mattes Glas über farbige Flächen. Ohne eigene Farben nimmt der Hintergrund Töne deiner Akzentfarbe. „Automatisch“ folgt deinem Gerät. Die Schriftgröße folgt zusätzlich der Textgröße deines iPhones.</p></section>'+
+  '</div><p class="p-note">„Glas“ legt die Kacheln als Milchglas über weiche Farbflächen, die Farben kommen vom Hintergrund oder von deiner Akzentfarbe. „Weiß“ zeigt deckende weiße Kacheln. Ohne eigene Farben nimmt der Hintergrund Töne deiner Akzentfarbe. „Automatisch“ folgt deinem Gerät. Die Schriftgröße folgt zusätzlich der Textgröße deines iPhones.</p></section>'+
 
   '<section class="p-sec"><span class="eyebrow">Schrift</span><div class="group">'+Object.keys(KB.FONTS).map(k=>{const f=KB.FONTS[k];
     return '<button class="fontopt" data-lk="font" data-val="'+k+'" aria-pressed="'+(L.font===k)+'"><span><span class="fn1 num" style="font-family:'+esc(f.d)+'">1.840 kcal</span><span class="fn2" style="font-family:'+esc(f.b)+'">'+esc(f.name)+'</span></span><span class="chk">'+svgI("check")+'</span></button>'}).join("")+'</div></section>'+
