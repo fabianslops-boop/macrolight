@@ -1,4 +1,4 @@
-# Kalorienbuch
+# Macrolight
 
 Kalorien-, Makro- und Trinkzähler fürs Handy. Eine einzige HTML-Seite ohne Build-Schritt, die als Cloudflare Worker ausgeliefert wird.
 
@@ -35,7 +35,7 @@ npx wrangler login     # einmalig
 npx wrangler deploy
 ```
 
-Danach ist die App unter `https://kalorienbuch.<dein-subdomain>.workers.dev` erreichbar.
+Danach ist die App unter `https://macrolight.<dein-subdomain>.workers.dev` erreichbar.
 
 ## Lokal ansehen
 

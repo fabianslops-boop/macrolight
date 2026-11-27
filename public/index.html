@@ -9,12 +9,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Kalorienbuch">
+<meta name="apple-mobile-web-app-title" content="Macrolight">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
-<title>Kalorienbuch</title>
+<title>Macrolight</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
@@ -386,7 +386,7 @@ window.KB=(function(){
   <!-- HEUTE -->
   <div class="view" id="view-today">
     <header class="top">
-      <h1 class="brand">Kalorien<span>buch</span></h1>
+      <h1 class="brand">Macro<span>light</span></h1>
       <div class="datebar">
         <button id="prevDay" aria-label="Vorheriger Tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
         <button class="datelabel" id="dateLabel" aria-label="Zu heute springen">Heute</button>
@@ -516,6 +516,7 @@ const PRESETS=[{ml:150,name:"Tasse",i:"cup"},{ml:200,name:"Kleines Glas",i:"glas
 const QUICK=[250,330,500];
 const iconForMl=ml=>(PRESETS.find(p=>p.ml===ml)||{i:ml>=750?"carafe":ml>=400?"bottle":"glass"}).i;
 const DEF_SETTINGS={goal:2000,p:110,c:230,f:70,water:2500,look:{...KB.DEF_LOOK},show:{macros:true,water:true}};
+// storage keys keep the app's former name so saved entries carry over
 const CACHE_KEY="kalorienbuch-v1";
 const nf=new Intl.NumberFormat("de-DE",{maximumFractionDigits:0});
 const nf1=new Intl.NumberFormat("de-DE",{maximumFractionDigits:1});
@@ -734,7 +735,7 @@ function renderMe(){
       '<label class="sw custom" aria-pressed="'+isCustom+'" title="Eigene Farbe"'+(isCustom?' style="background:'+esc(L.accent)+'"':'')+'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12"/></svg><input type="color" id="customColor" aria-label="Eigene Akzentfarbe wählen" value="'+(isCustom?esc(L.accent):"#B8336A")+'"></label></div></div>'+
     '<div class="group"><span class="lbl">Hintergrund</span><div class="bgopts">'+Object.keys(KB.BGS).map(k=>{const b=KB.BGS[k];return '<button class="bgopt" data-look="bg" data-val="'+k+'" aria-pressed="'+(L.bg===k)+'"><span class="bgprev" style="background:linear-gradient(90deg,'+b.l[0]+' 50%,'+b.d[0]+' 50%)"><i style="background:linear-gradient(90deg,'+b.l[1]+' 50%,'+b.d[1]+' 50%)"></i></span>'+b.name+'</button>'}).join("")+'</div>'+
       '<div class="row" style="border-top:0;padding-bottom:0"><div class="row-l"><b>Farbverlauf</b><span>Akzentfarbe leuchtet oben im Hintergrund</span></div><button class="switch" role="switch" data-look-toggle="grad" aria-checked="'+!!L.grad+'" aria-label="Farbverlauf"></button></div></div>'+
-    '<div class="group"><span class="lbl">Schrift</span><div class="fontopts">'+Object.keys(KB.FONTS).map(k=>{const f=KB.FONTS[k];return '<button class="fontopt" data-look="font" data-val="'+k+'" aria-pressed="'+(L.font===k)+'"><span><span class="fs1" style="font-family:'+esc(f.d)+'">Kalorienbuch</span><br><span class="fs2" style="font-family:'+esc(f.b)+'">'+esc(f.name)+'</span></span><span class="fnum num" style="font-family:'+esc(f.d)+'">1.840</span></button>'}).join("")+'</div></div>'+
+    '<div class="group"><span class="lbl">Schrift</span><div class="fontopts">'+Object.keys(KB.FONTS).map(k=>{const f=KB.FONTS[k];return '<button class="fontopt" data-look="font" data-val="'+k+'" aria-pressed="'+(L.font===k)+'"><span><span class="fs1" style="font-family:'+esc(f.d)+'">Macrolight</span><br><span class="fs2" style="font-family:'+esc(f.b)+'">'+esc(f.name)+'</span></span><span class="fnum num" style="font-family:'+esc(f.d)+'">1.840</span></button>'}).join("")+'</div></div>'+
     '<div class="group"><span class="lbl">Schriftgröße</span>'+seg("size",[["klein","Klein"],["normal","Normal"],["gross","Groß"],["xl","Sehr groß"]])+'<span class="muted">Folgt zusätzlich der Textgröße deines iPhones.</span>'+'</div>'+
     '<div class="group"><span class="lbl">Ecken</span>'+seg("radius",[["eckig","Eckig"],["weich","Weich"],["rund","Rund"]])+'</div>'+
     '<div class="group"><button class="btn ghost" id="resetLook">Design zurücksetzen</button></div>'+
@@ -800,7 +801,7 @@ function exportCsv(){
     o.entries.forEach(e=>rows.push([d,"Essen",(MEALS.find(m=>m.id===e.meal)||{label:""}).label,e.name,e.g?e.g+" g":"",e.kcal,dn(e.p),dn(e.c),dn(e.f)]));
     o.water.forEach(w=>rows.push([d,"Trinken","","Wasser",w.ml+" ml","","","",""]));
     if(o.weight!=null)rows.push([d,"Gewicht","","",dn(o.weight)+" kg","","","",""]);});
-  downloads.save({filename:"kalorienbuch-"+today()+".csv",data:"﻿"+rows.map(r=>r.map(q).join(";")).join("\r\n")})
+  downloads.save({filename:"macrolight-"+today()+".csv",data:"﻿"+rows.map(r=>r.map(q).join(";")).join("\r\n")})
     .then(r=>{if(r&&r.status==="saved")toast("Export gespeichert")})
     .catch(e=>{if(e&&e.code==="unavailable"){downloads=null;renderMe()}else toast("Export nicht gespeichert")});
 }
