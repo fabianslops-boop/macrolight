@@ -1,5 +1,5 @@
 // Offline support: pages come from the network first, everything else from the cache first.
-const CACHE = "macrolight-v5";
+const CACHE = "macrolight-v6";
 const SHELL = ["/", "/manifest.webmanifest", "/icons/icon-192.png"];
 
 self.addEventListener("install", e => {

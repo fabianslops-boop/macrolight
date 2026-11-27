@@ -4,13 +4,17 @@ Kalorien-, Makro- und Trinkzähler fürs Handy. Eine einzige HTML-Seite ohne Bui
 
 ## Funktionen
 
-- Tagesring nach Mahlzeiten aufgeteilt, mit verbleibenden Kalorien
+- Kalorien-Skala mit verbleibenden, gegessenen und Ziel-Kalorien
 - Eiweiß, Kohlenhydrate und Fett mit eigenen Zielen
 - Lebensmittelliste (je 100 g), eigene Einträge, „Wie gestern“
 - Trinkzähler mit 150, 200, 250, 330, 500, 750 und 1000 ml
-- Verlauf über 7 oder 30 Tage, Serie, Gewichtskurve
+- Verlauf über 7 oder 30 Tage für Kalorien und Trinken, Gewichtskurve
 - Anpassbar: Akzentfarbe, Hintergrund, Schrift, Schriftgröße, Ecken, Hell/Dunkel
 - Lässt sich als App zum Home-Bildschirm hinzufügen und funktioniert offline
+
+## Design: Calm Precision
+
+Warmes Papierweiß, Anthrazit, ein gedecktes Waldgrün als einziger Akzent. Das wiederkehrende Element ist die Skala: feine Skalenstriche wie auf einer Küchenwaage oder einem Messbecher. Sie zeigt Kalorien, Makros, Trinkmenge und die Zeitachse im Verlauf. Schrift ist SF Pro (Systemschrift) mit Tabellenziffern, damit Zahlen beim Ändern nicht springen.
 
 ## Speicherung
 
